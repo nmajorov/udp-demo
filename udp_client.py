@@ -3,9 +3,9 @@
 import socket
 import os
 
-UDP_IP = os.environ.get("UDP_UP", "O.0.0.0")
+UDP_IP = os.environ.get("UDP_IP", "O.0.0.0")
 
-UDP_PORT = 9090
+UDP_PORT = os.environ.get("UDP_PORT", 9090)
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
