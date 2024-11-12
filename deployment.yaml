@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
         - name: udp-server
-          image: docker.io/nmajorov/udp-server:latest
+          image: docker.io/nmajorov/udp-server:0.1
           ports:
             - containerPort: 9090
+              protocol: UDP
