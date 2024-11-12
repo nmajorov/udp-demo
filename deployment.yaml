@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udp-demo-server
+spec:
+  selector:
+    matchLabels:
+      app: udp-demo
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: udp-demo
+        tier: backend
+    spec:
+      containers:
+        - name: udp-server
+          image: docker.io/nmajorov/udp-server:latest
+          ports:
+            - containerPort: 9090

@@ -3,7 +3,9 @@ FROM docker.io/opensuse/leap:15.6
 LABEL org.opencontainers.image.authors="nikolaj@majorov.biz"
 
 COPY udp_server.py /usr/local/bin/udp_server
-RUN chmod a+x /usr/local/bin/udp_server && \
+RUN zypper --non-interactive in  -l -y python3 && \
+    alternatives --install  /usr/bin/python python /usr/bin/python3 1 && \
+    chmod 775 /usr/local/bin/udp_server && \
     useradd -s /bin/bash suse
 
 USER suse
